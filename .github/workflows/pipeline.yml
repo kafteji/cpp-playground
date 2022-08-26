@@ -1,0 +1,27 @@
+---
+name: pipeline
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Sources
+        uses: actions/checkout@v3
+
+      # - name: Install Dependencies
+      #   run: |
+      #     sudo apt-get -y install libgtest-dev clang++
+
+      - name: Build
+        run: |
+          clang++ --version
+          bazel --version
+          CC=/usr/bin/clang++ bazel build //:playground
+
+      - name: Test
+        run: bazel run  //:playground
