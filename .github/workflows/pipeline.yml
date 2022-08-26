@@ -6,6 +6,10 @@ on:
   push:
     branches: [ main ]
 
+env:
+  CC: /usr/bin/clang
+  CXX: /usr/bin/clang++
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,15 +17,13 @@ jobs:
       - name: Checkout Sources
         uses: actions/checkout@v3
 
-      # - name: Install Dependencies
-      #   run: |
-      #     sudo apt-get -y install libgtest-dev clang++
+      - name: Toolchain Version
+        run: |
+          bazel --version
+          $CXX --version
 
       - name: Build
-        run: |
-          clang++ --version
-          bazel --version
-          CC=/usr/bin/clang++ bazel build //:playground
+        run: bazel build //:playground
 
       - name: Test
         run: bazel run  //:playground
