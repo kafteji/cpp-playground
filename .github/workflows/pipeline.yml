@@ -4,7 +4,7 @@ name: pipeline
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
 
 env:
   CC: /usr/bin/clang
