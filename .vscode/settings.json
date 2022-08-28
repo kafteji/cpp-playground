@@ -1,0 +1,12 @@
+{
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.default.cStandard": "c17",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "editor.fontFamily": "'JetBrains Mono'",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14.5,
+    "C_Cpp.clang_format_fallbackStyle": "Chromium",
+    "C_Cpp.clang_format_sortIncludes": true,
+}
