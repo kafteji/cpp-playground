@@ -11,4 +11,5 @@
     "C_Cpp.clang_format_sortIncludes": true,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorBlinking": true,
+    "editor.renderFinalNewline": true
 }
