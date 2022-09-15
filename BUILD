@@ -8,7 +8,7 @@ cc_library(
 
 cc_binary(
     name = "playground",
-    srcs = glob(["test/**/*.cpp"]),
+    srcs = glob(["tests/**/*.cpp"]),
     deps = [
         ":lib",
         "@google_googletest//:gtest_main",
