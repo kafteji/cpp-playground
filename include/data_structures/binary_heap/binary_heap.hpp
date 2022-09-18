@@ -1,45 +1,45 @@
+#include <iterator>
 #include <limits>
-#include <memory>
 #include <vector>
 
 class BinrayHeap {
  public:
-  BinrayHeap() = default;
+  void max_heapify(std::vector<int>::iterator begin,
+                   std::vector<int>::iterator end,
+                   int index) {}
 
-  ~BinrayHeap() noexcept = default;
-
-  BinrayHeap(const std::vector<int>& input) : _heap(input) {}
-
-  int parent(int node) {
-    if ((node <= 0) or (node >= _heap.size())) {
+  int parent(std::vector<int>::iterator begin,
+             std::vector<int>::iterator end,
+             int index) {
+    if ((index <= 0) or (index >= std::distance(begin, end))) {
       return std::numeric_limits<int>::min();
     }
     // Special case when the index == 2 the parent will be 1 which is wrong
-    if (node == 2)
-      --node;
+    if (index == 2)
+      --index;
 
-    return _heap[node / 2];
+    return *std::next(begin, index / 2);
   }
 
-  int left_child(int node) {
-    if ((node < 0) or (node >= _heap.size() / 2)) {
+  int left_child(std::vector<int>::iterator begin,
+                 std::vector<int>::iterator end,
+                 int index) {
+    if ((index < 0) or (index >= std::distance(begin, end) / 2)) {
       return std::numeric_limits<int>::min();
     }
-    auto child = node * 2 + 1;  // +1 since _heap is zero-based
-    return _heap[child];
+    return *std::next(begin, index * 2 + 1);  // +1 since the Heap is zero-based
   }
 
-  int right_child(int node) {
-    if ((node < 0) or (node >= _heap.size() / 2)) {
+  int right_child(std::vector<int>::iterator begin,
+                  std::vector<int>::iterator end,
+                  int index) {
+    if ((index < 0) or (index >= std::distance(begin, end) / 2)) {
       return std::numeric_limits<int>::min();
     }
-    auto child = node * 2 + 2;  // +1 since _heap is zero-based
-    return (child < _heap.size()) ? _heap[child]
-                                  : std::numeric_limits<int>::min();
+    auto child_index = index * 2 + 2;  // +1 since the Heap is zero-based
+    if (child_index >= std::distance(begin, end))
+      return std::numeric_limits<int>::min();
+
+    return *std::next(begin, child_index);
   }
-
-  const std::vector<int>& get_heap_array() const { return _heap; }
-
- private:
-  std::vector<int> _heap;
 };
