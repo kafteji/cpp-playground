@@ -1,5 +1,5 @@
+#include "algorithms/sorting/insertion_sort.hpp"
 #include <gtest/gtest.h>
-#include <algorithms/sorting/insertion_sort.hpp>
 
 TEST(insertion_sort_test, sort_empty_array) {
   std::vector<int> v{};

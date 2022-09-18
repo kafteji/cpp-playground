@@ -1,5 +1,5 @@
+#include "algorithms/sorting/merge_sort.hpp"
 #include <gtest/gtest.h>
-#include <algorithms/sorting/merge_sort.hpp>
 
 TEST(merge_sort_test, sort_empty_array) {
   std::vector<int> v{};

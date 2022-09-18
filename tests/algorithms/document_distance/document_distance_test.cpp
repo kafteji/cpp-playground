@@ -1,5 +1,5 @@
+#include "algorithms/document_distance/document_distance.hpp"
 #include <gtest/gtest.h>
-#include <algorithms/document_distance/document_distance.hpp>
 
 TEST(document_distance_test, extract_words_from_document_success) {
   std::string doc =
