@@ -82,3 +82,27 @@ TEST(binary_heap_test, max_heapify_a_sub_heap) {
                                    40, 45, 50, 55, 60, 65, 15};
   EXPECT_TRUE(std::equal(v.begin(), v.end(), expected_result.begin()));
 }
+
+TEST(binary_heap_test, build_max_heap_with_1_node) {
+  std::vector<int> v{5};
+  BinrayHeap heap;
+  heap.build_max_heap(v.begin(), v.end());
+  std::vector<int> expected_result{5};
+  EXPECT_TRUE(std::equal(v.begin(), v.end(), expected_result.begin()));
+}
+
+TEST(binary_heap_test, build_max_heap_with_3_nodes) {
+  std::vector<int> v{5, 10, 15};
+  BinrayHeap heap;
+  heap.build_max_heap(v.begin(), v.end());
+  std::vector<int> expected_result{15, 10, 5};
+  EXPECT_TRUE(std::equal(v.begin(), v.end(), expected_result.begin()));
+}
+
+TEST(binary_heap_test, build_max_heap_with_multiple_nodes) {
+  std::vector<int> v{5, 10, 15, 20, 25, 30};
+  BinrayHeap heap;
+  heap.build_max_heap(v.begin(), v.end());
+  std::vector<int> expected_result{30, 25, 15, 20, 10, 5};
+  EXPECT_TRUE(std::equal(v.begin(), v.end(), expected_result.begin()));
+}
