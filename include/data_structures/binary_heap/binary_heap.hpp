@@ -4,6 +4,12 @@
 
 class BinrayHeap {
  public:
+  void build_max_heap(std::vector<int>::iterator begin,
+                      std::vector<int>::iterator end) {
+    auto last_parent_index = (std::distance(begin, end) / 2) - 1;
+    for (auto i = last_parent_index; i >= 0; --i)
+      max_heapify(begin, end, i);
+  }
   void max_heapify(std::vector<int>::iterator begin,
                    std::vector<int>::iterator end,
                    int index) {
