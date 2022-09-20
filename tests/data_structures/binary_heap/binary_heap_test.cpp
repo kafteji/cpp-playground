@@ -92,10 +92,10 @@ TEST(binary_heap_test, build_max_heap_with_1_node) {
 }
 
 TEST(binary_heap_test, build_max_heap_with_3_nodes) {
-  std::vector<int> v{5, 10, 15};
+  std::vector<int> v{5, 15, 10};
   BinrayHeap heap;
   heap.build_max_heap(v.begin(), v.end());
-  std::vector<int> expected_result{15, 10, 5};
+  std::vector<int> expected_result{15, 5, 10};
   EXPECT_TRUE(std::equal(v.begin(), v.end(), expected_result.begin()));
 }
 
