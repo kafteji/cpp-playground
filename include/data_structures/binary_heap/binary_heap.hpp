@@ -21,7 +21,7 @@ class BinrayHeap {
     if ((left_child != end) and (*left_child > *node))
       max_node = left_child;
 
-    if ((right_child != end) and (*right_child > *node))
+    if ((right_child != end) and (*right_child > *max_node))
       max_node = right_child;
 
     if (max_node != node) {
