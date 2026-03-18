@@ -11,6 +11,6 @@ cc_binary(
     srcs = glob(["tests/**/*.cpp"]),
     deps = [
         ":lib",
-        "@google_googletest//:gtest_main",
+        "@googletest//:gtest_main",
     ],
 )
